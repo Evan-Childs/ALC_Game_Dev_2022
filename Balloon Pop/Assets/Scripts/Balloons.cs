@@ -7,12 +7,13 @@ public class Balloons : MonoBehaviour
     public int ScoreToGive = 1;
     public int clickToPop = 3;
     public float scaleToIncrease = 0.1f;
-    //public ScoreManager ScoreManager;
+    private ScoreManager scoreManager;
     // Start is called before the first frame update
     void Start()
     {
         //Reference ScoreManager Component
-        //scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        scoreManager = GameObject.Find("ScoreManager");
+        GetComponent<ScoreManager>();
     }
 
     void OnMouseDown()
@@ -25,7 +26,7 @@ public class Balloons : MonoBehaviour
 
         if(clickToPop == 0)
         {
-            //ScoreManager.IncreaseScoreText(scaleToGive);
+            ScoreManager.IncreaseScoreText(scaleToGive);
             Destroy(gameObject);
         }
     }
